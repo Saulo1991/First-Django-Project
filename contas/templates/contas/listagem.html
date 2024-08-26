@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Listagem</title>
+    <style>
+        body {
+            background-color: #4b0082; /* Roxo escuro */
+            color: #ffffff; /* Texto branco */
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        h2 {
+            color: #dfff00; /* Chartreuse */
+            margin: 20px 0;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+            width: 100%;
+            max-width: 800px;
+        }
+        li {
+            background-color: #6a0dad; /* Roxo */
+            margin: 10px 0;
+            padding: 10px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+        a {
+            color: #dfff00; /* Chartreuse */
+            text-decoration: none;
+            display: block;
+        }
+        a:hover {
+            text-decoration: underline;
+            color: #bfff00; /* Chartreuse mais claro */
+        }
+        .novo-link {
+            color: #ff69b4; /* Hot pink */
+            text-decoration: none;
+            font-size: 18px;
+            margin: 20px;
+        }
+        .novo-link:hover {
+            text-decoration: underline;
+            color: #ff1493; /* Deep pink */
+        }
+    </style>
+</head>
+<body>
+    <h2>Listagem</h2>
+    <ul>
+    {% for transacao in transacoes %}
+        <li><a href="{% url 'url_update' transacao.id %}">{{ transacao }} - {{ transacao.data }} - {{ transacao.valor }} - {{ transacao.categoria }}</a></li>
+    {% endfor %}
+    </ul>
+    <a href="{% url 'url_nova' %}" class="novo-link">Novo</a>
+</body>
+</html>

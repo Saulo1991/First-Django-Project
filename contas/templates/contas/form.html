@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form</title>
+    <style>
+        body {
+            background-color: #4b0082; /* Roxo escuro */
+            color: #ffffff; /* Texto branco */
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        form {
+            max-width: 600px;
+            width: 100%;
+            padding: 20px;
+            background-color: #6a0dad; /* Roxo */
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        button {
+            background-color: #dfff00; /* Chartreuse */
+            color: #000000; /* Texto preto */
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+        button:hover {
+            background-color: #bfff00; /* Chartreuse mais claro */
+            transform: scale(1.05);
+        }
+        a {
+            color: #ff69b4; /* Hot pink */
+            text-decoration: none;
+            font-size: 16px;
+        }
+        a:hover {
+            text-decoration: underline;
+            color: #ff1493; /* Deep pink */
+        }
+    </style>
+</head>
+<body>
+    <form method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Save</button>
+        {% if transacao %}
+            <a href="{% url 'url_delete' transacao.id %}" onclick="return confirm('Tem certeza de que deseja remover esta transação?');">Remove</a>
+        {% endif %}
+    </form>
+</body>
+</html>

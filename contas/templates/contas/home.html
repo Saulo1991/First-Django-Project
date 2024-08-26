@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <style>
+        body {
+            background-color: #4b0082; /* Roxo escuro */
+            color: #ffffff; /* Texto branco */
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 20px;
+            margin: 0;
+        }
+        h1 {
+            color: #dfff00; /* Chartreuse */
+            margin-bottom: 20px;
+        }
+        p {
+            color: #ff69b4; /* Hot pink */
+            font-size: 18px;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        li {
+            margin: 10px 0;
+            font-size: 18px;
+        }
+        b {
+            color: #dfff00; /* Chartreuse */
+        }
+    </style>
+</head>
+<body>
+    <h1>Welcome to Django</h1>
+    <p>Now it's: {{ now }}</p>
+    <ul>
+    {% for transacao in transacoes %}
+        {% if transacao == "Transaction 1" %}
+            <li><b>{{ transacao }}</b></li>
+        {% else %}
+            <li>{{ transacao }}</li>
+        {% endif %}
+    {% endfor %}
+    </ul>
+</body>
+</html>
